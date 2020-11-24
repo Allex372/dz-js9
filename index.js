@@ -215,14 +215,13 @@ function myDay(time){
     })
 
 }
-
 function bathroom (day){
     return new Promise(((resolve, reject) => {
         setTimeout(()=>{
-            if (day === 'bad'){
-                resolve('НАДЗВИЧАЙНО ЩВИДКО');
-                return
-            }
+            // if (day === 'bad'){
+            //     resolve('НАДЗВИЧАЙНО ЩВИДКО');
+            //     return
+            // }
             reject('Спокійно вмиваюся, та чищу зуби.');
         },1000)
     }))
@@ -291,45 +290,72 @@ function hoHome(day){
 }
 
 
+async function go(){
+    try {
+        let myday = await myDay(7);
+        console.log(myday);
+        let bathroom = await bathroom('');
+        console.log(bathroom)
+        let breakfast = await breakfast('bad');
+        console.log(breakfast)
+        let gojob = await goJob('');
+        console.log(gojob)
+        let work = await work('');
+        console.log(work)
+        let dinner = await dinner('');
+        console.log(dinner)
+        let home = hoHome('');
+        console.log(home);
+    }
+    catch (e){
+        console.log('*******************')
+        console.log(e)
+        console.log('*******************')
+    }
+}
+go();
 
-myDay(9)
-.then((data)=>{
-    console.log(`Бляха я  ${data}`)
 
-    return bathroom('bad')
-})
-.then(thoose=>{
-    console.log(thoose + ' ЧИЩУ ЗУБИ')
 
-    return breakfast('bad')
-})
-.then(brak=>{
-    console.log(brak+' Я НЕ ВСТИГАЮ ПОСНІДАТИ')
 
-    return goJob('')
-})
-.then(omg=>{
-    console.log(omg + ' Я НЕ ВСТИГ НА АВТОБУС')
-
-    return work('bad');
-})
-.then(workTime=>{
-    console.log(workTime+ ' Я не ВСТИГАЮ ВИКОНАТИ ТАСКУ')
-
-    return dinner('bad');
-})
-.then(eat=>{
-    console.log(eat + ' Я НЕ ВСТИГАЮ ПОЇСТИ')
-
-    return hoHome('bad');
-})
-.then(drink=>{
-    console.log(drink + ' НАП*ЮСЯ ЗІ ВСЬОГО')
-    console.log('DAY OFF ^-^')
-})
-.catch(err=>{
-    console.log('=================')
-    console.log(err)
-    console.log('=================')
-
-})
+// myDay(9)
+// .then((data)=>{
+//     console.log(`Бляха я  ${data}`)
+//
+//     return bathroom('bad')
+// })
+// .then(thoose=>{
+//     console.log(thoose + ' ЧИЩУ ЗУБИ')
+//
+//     return breakfast('bad')
+// })
+// .then(brak=>{
+//     console.log(brak+' Я НЕ ВСТИГАЮ ПОСНІДАТИ')
+//
+//     return goJob('')
+// })
+// .then(omg=>{
+//     console.log(omg + ' Я НЕ ВСТИГ НА АВТОБУС')
+//
+//     return work('bad');
+// })
+// .then(workTime=>{
+//     console.log(workTime+ ' Я не ВСТИГАЮ ВИКОНАТИ ТАСКУ')
+//
+//     return dinner('bad');
+// })
+// .then(eat=>{
+//     console.log(eat + ' Я НЕ ВСТИГАЮ ПОЇСТИ')
+//
+//     return hoHome('bad');
+// })
+// .then(drink=>{
+//     console.log(drink + ' НАП*ЮСЯ ЗІ ВСЬОГО')
+//     console.log('DAY OFF ^-^')
+// })
+// .catch(err=>{
+//     console.log('=================')
+//     console.log(err)
+//     console.log('=================')
+//
+// })
